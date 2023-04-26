@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "ab-test-api"
+version = "0.1.0"
+description = ""
+authors = ["Ilia Kaziamov <kaziamov@outlook.com>"]
+readme = "README.md"
+packages = [{include = "ab_test_api"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.95.1"
+python-dotenv = "^1.0.0"
+uvicorn = "^0.21.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
