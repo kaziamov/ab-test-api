@@ -13,7 +13,7 @@ gunicorn = "^20.1.0"
 psycopg2-binary = "^2.9.5"
 python-dotenv = "^1.0.0"
 uvicorn = "^0.21.1"
-pony = "^0.7.16"
+tortoise-orm = "^0.19.3"
 
 
 [tool.poetry.group.dev.dependencies]
