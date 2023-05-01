@@ -1,6 +1,8 @@
-from ab_test_api.main import app
+from ab_test_api.app import app
+
 
 __all__ = ['app']
+
 
 if __name__ == '__main__':
     app()

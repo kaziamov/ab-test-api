@@ -1,0 +1,7 @@
+*.aof
+*.rdb
+*cache*
+.vscode
+.idea
+pgdata/
+.env

@@ -1,0 +1,25 @@
+version: '3.3'
+
+services:
+  app:
+    image: python:3.11.2
+    build:
+      context: .
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    ports:
+      - 8000:8000
+    command: bash -c "cd app && pip install -r requirements.txt && make start-server"
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
