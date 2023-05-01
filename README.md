@@ -1,3 +1,4 @@
+[![flake8](https://github.com/kaziamov/ab-test-api/actions/workflows/lint.yml/badge.svg)](https://github.com/kaziamov/ab-test-api/actions/workflows/lint.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/be9406f4d33457556879/maintainability)](https://codeclimate.com/github/kaziamov/ab-test-api/maintainability)
 
 # About
