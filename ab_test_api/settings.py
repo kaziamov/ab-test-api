@@ -2,20 +2,23 @@ import dotenv
 import os
 from urllib.parse import urlparse
 
-env_path = os.path.join(os.path.dirname(__file__), '.env')
 dotenv.load_dotenv()
+env = os.environ.get
 
-parsed_url = urlparse(os.environ.get('DATABASE_URL'))
+DATABASE_URL = urlparse(env('DATABASE_URL'))
 
-if parsed_url:
-    DB_HOST = parsed_url.hostname
-    DB_PORT = parsed_url.port
-    DB_NAME = parsed_url.path[1:]
-    DB_USER = parsed_url.username
-    DB_PASS = parsed_url.password
+if DATABASE_URL:
+    DB_HOST = DATABASE_URL.hostname
+    DB_PORT = DATABASE_URL.port
+    DB_NAME = DATABASE_URL.path[1:]
+    DB_USER = DATABASE_URL.username
+    DB_PASS = DATABASE_URL.password
 else:
-    DB_HOST = urlparse(os.environ.get('DB_HOST'))
-    DB_PORT = urlparse(os.environ.get('DB_PORT'))
-    DB_NAME = urlparse(os.environ.get('DB_NAME'))
-    DB_USER = urlparse(os.environ.get('DB_USER'))
-    DB_PASS = urlparse(os.environ.get('DB_PASS'))
+    DB_HOST = env('DB_HOST')
+    DB_PORT = env('DB_PORT')
+    DB_NAME = env('DB_NAME')
+    DB_USER = env('DB_USER')
+    DB_PASS = env('DB_PASS')
+
+MAX_CONN = int(env('MAX_CONN'))
+MIN_CONN = int(env('MIN_CONN'))
