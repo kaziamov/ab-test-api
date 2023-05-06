@@ -1,7 +1,12 @@
 PORT ?= 8000
 
+dev: freeze
+	docker-compose up --force-recreate
+
 up:
 	docker-compose up
+
+show: up migrate
 
 start:
 	poetry run uvicorn ab_test_api:app --port $(PORT) --reload
@@ -17,3 +22,11 @@ freeze:
 
 install:
 	poetry install
+
+migrate:
+	poetry run python ab_test_api/migration.py
+
+stop:
+	docker-compose stop && \
+	docker-compose rm && \
+	sudo rm -rf pgdata/
