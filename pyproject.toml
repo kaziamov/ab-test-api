@@ -9,11 +9,10 @@ packages = [{include = "ab_test_api"}]
 [tool.poetry.dependencies]
 python = "^3.9"
 fastapi = "^0.95.1"
-gunicorn = "^20.1.0"
 psycopg2-binary = "^2.9.5"
 python-dotenv = "^1.0.0"
 uvicorn = "^0.21.1"
-tortoise-orm = "^0.19.3"
+aiopg = "^1.4.0"
 
 
 [tool.poetry.group.dev.dependencies]
