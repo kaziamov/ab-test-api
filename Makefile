@@ -14,6 +14,10 @@ start:
 start-server:
 	uvicorn ab_test_api:app --host 0.0.0.0 --port $(PORT) --reload
 
+start-db:
+	docker-compose -f docker-compose.db.yml up
+
+
 lint:
 	poetry run flake8 ab_test_api
 
@@ -30,3 +34,6 @@ stop:
 	docker-compose stop && \
 	docker-compose rm && \
 	sudo rm -rf pgdata/
+
+rm-venv:
+	rm -rf `poetry env info -p`
