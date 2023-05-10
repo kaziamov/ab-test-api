@@ -37,3 +37,6 @@ stop:
 
 rm-venv:
 	rm -rf `poetry env info -p`
+
+p: lint
+	git push
