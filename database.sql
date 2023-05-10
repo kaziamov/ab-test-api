@@ -1,5 +1,5 @@
 CREATE TABLE devices (
-    device_token VARCHAR PRIMARY KEY,
+    device VARCHAR(255) PRIMARY KEY,
     created_at TIMESTAMP
 );
 
