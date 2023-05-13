@@ -1,5 +1,3 @@
-from datetime import datetime
-
 from ab_test_api.database import get_connection
 
 
