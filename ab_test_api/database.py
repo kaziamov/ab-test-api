@@ -29,7 +29,7 @@ async def connect():
             host=DB_HOST,
             port=DB_PORT,
             min_size=1,
-            max_size=4)
+            max_size=20)
     return _pool
 
 
