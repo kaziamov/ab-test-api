@@ -1,4 +1,4 @@
-PORT ?= 8000
+include .env
 
 dev: freeze
 	docker-compose up --force-recreate
@@ -9,10 +9,10 @@ up:
 show: up migrate
 
 start:
-	poetry run uvicorn ab_test_api:app --port $(PORT) --reload
+	poetry run uvicorn ab_test_api:app --port ${PORT} --reload
 
 start-server:
-	uvicorn ab_test_api:app --host 0.0.0.0 --port $(PORT) --reload
+	uvicorn ab_test_api:app --host ${HOST} --port ${PORT} --reload
 
 start-db:
 	docker-compose -f docker-compose.db.yml up
