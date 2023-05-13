@@ -10,8 +10,3 @@ router = APIRouter()
 async def tests(device_token=Header(None, alias='Device-Token')):
     result = await get_or_create_test(device_token)
     return {"device_token": device_token, "message": result}
-
-
-@router.get("/")
-async def root():
-    return {"message": "Done!"}
