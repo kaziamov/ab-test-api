@@ -10,16 +10,19 @@ services:
     depends_on:
       - db
     ports:
-      - 8000:8000
-    command: bash -c "cd app && pip install -r requirements.txt && make start-server"
+      - ${PORT}:8000
+    command: bash -c "cd app
+                      && pip install poetry
+                      && poetry install
+                      && make start-server"
 
   db:
     image: postgres:15
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: postgres
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: ${DB_NAME}
     volumes:
       - ./pgdata:/var/lib/postgresql/data
     ports:
-      - 5432:5432
+      - ${DB_PORT}:5432
