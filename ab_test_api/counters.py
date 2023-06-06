@@ -2,7 +2,7 @@ from random import shuffle
 from itertools import chain
 
 
-async def get_next_color():
+async def get_next_color() -> str:
     index = 0
     colors = ["#FF0000", "#00FF00", "#0000FF"]
     while True:
@@ -12,7 +12,7 @@ async def get_next_color():
             index = 0
 
 
-async def get_next_price():
+async def get_next_price() -> int:
     index = 0
     prices = list(chain([10] * 15,
                         [20] * 2,
