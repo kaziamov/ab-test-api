@@ -3,7 +3,7 @@ from ab_test_api.database import get_connection
 
 async def get_device(device: str) -> list:
     query = """
-            SELECT button_color
+            SELECT *
             FROM devices
             WHERE device=$1 LIMIT 1;"""
     async with get_connection() as conn:
