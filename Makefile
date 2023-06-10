@@ -1,5 +1,7 @@
 include .env
 
+
+
 dev: freeze
 	docker-compose up --force-recreate
 
@@ -9,7 +11,7 @@ up:
 show: up migrate
 
 start:
-	poetry run uvicorn ab_test_api:app --port ${PORT} --reload
+	poetry run uvicorn ab_test_api:app --host ${HOST} --port ${PORT} --reload
 
 start-server:
 	uvicorn ab_test_api:app --host ${HOST} --port ${PORT} --reload
@@ -30,7 +32,7 @@ install:
 migrate:
 	poetry run python ab_test_api/migration.py
 
-stop:
+rm:
 	docker-compose stop && \
 	docker-compose rm && \
 	sudo rm -rf pgdata/
