@@ -9,12 +9,13 @@ services:
       - .:/app
     depends_on:
       - db
+    # network_mode: 'host'
     ports:
-      - ${PORT}:8000
+      - ${PORT}:${PORT}
     command: bash -c "cd app
                       && pip install poetry
                       && poetry install
-                      && make start-server"
+                      && make start"
 
   db:
     image: postgres:15
@@ -24,5 +25,6 @@ services:
       POSTGRES_DB: ${DB_NAME}
     volumes:
       - ./pgdata:/var/lib/postgresql/data
+      - ./database.sql:/docker-entrypoint-initdb.d/001.sql
     ports:
-      - ${DB_PORT}:5432
+      - ${DB_PORT}:${DB_PORT}
