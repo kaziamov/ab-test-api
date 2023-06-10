@@ -4,7 +4,13 @@ import asyncpg
 from contextlib import asynccontextmanager
 from typing import Optional
 
-from ab_test_api.settings import DB_HOST, DB_NAME, DB_PASS, DB_PORT, DB_USER
+from ab_test_api.settings import (DB_HOST,
+                                  DB_NAME,
+                                  DB_PASS,
+                                  DB_PORT,
+                                  DB_USER,
+                                  MIN_CONN,
+                                  MAX_CONN)
 
 
 class BaseDBModel(DeclarativeBase):
@@ -28,8 +34,8 @@ async def connect():
             password=DB_PASS,
             host=DB_HOST,
             port=DB_PORT,
-            min_size=1,
-            max_size=20)
+            min_size=MIN_CONN,
+            max_size=MAX_CONN)
     return _pool
 
 
